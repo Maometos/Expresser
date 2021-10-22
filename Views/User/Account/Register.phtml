@@ -8,19 +8,19 @@
                <h4 class="text-info">Registration Successful</h4>
             </div>
             <div>
-               <a class="btn btn-close" aria-label="Close" href="/account/register"></a>
+               <a class="btn btn-close" aria-label="Close" href="/user/account/register"></a>
             </div>
          </header>
          <hr>
          <p>
             Your account has been successfully created, You may now sign in with your Username and Paswword.
          </p>
-         <a class="btn btn-info text-white" href="/account/login">Sign In</a>
+         <a class="btn btn-info text-white" href="/user/account/login">Sign In</a>
       </div>
    <?php else : ?>
       <div class="card flex-grow-1 p-4 shadow" style="max-width: 400px">
          <div class="card-body">
-            <form method="post" action="/account/register">
+            <form method="post" action="/user/account/register">
                <h2 class="text-center text-info">Register</h2>
                <div class="mb-3">
                   <label for="InputName" class="form-label">Full name</label>

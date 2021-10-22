@@ -3,7 +3,7 @@
 <div class="container d-flex flex-row align-items-center justify-content-center" style="height: 500px;">
 	<div class="card flex-grow-1 p-4 shadow" style="max-width: 400px">
 		<div class="card-body">
-			<form method="post" action="/account/login">
+			<form method="post" action="/user/account/login">
 				<h2 class="text-center text-info">Sign In</h2>
 				<div class="mb-3">
 					<label for="InputEmail" class="form-label">Email address</label>
@@ -21,7 +21,7 @@
 					<button type="submit" class="btn btn-info text-white">Sign In</button>
 				</div>
 				<div class="text-center mt-3">
-					Don't have an account? <a href="/account/register">Sign Up.</a>
+					Don't have an account? <a href="/user/account/register">Sign Up.</a>
 				</div>
 				<?= $this->Html->AntiforgeryToken() ?>
 			</form>

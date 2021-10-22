@@ -23,7 +23,9 @@ class Startup
 
         $services->addAntiforgery();
 
-        $services->addAuthentication();
+        $services->addAuthentication(function ($options) {
+            $options->LoginPath = '/user/account/login';
+        });
 
         $services->addAuthorisation();
     }
@@ -43,6 +45,7 @@ class Startup
         $app->useAuthorization();
 
         $app->useEndpoint(function ($routes) {
+            $routes->mapRoute("user", "/user/{controller=Account}/{action=Index}/{id?}");
             $routes->mapRoute("default", "{controller=Home}/{action=Index}/{id?}");
         });
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Controllers;
+namespace Application\Controllers\User;
 
 use DevNet\System\Linq;
 use DevNet\System\Type;
@@ -45,18 +45,18 @@ class AccountController extends AbstractController
         $user = $this->HttpContext->User;
 
         if ($user->isAuthenticated()) {
-            return $this->redirect('/account/index');
+            return $this->redirect('/user/account/index');
         }
 
         if (!$form->isValide()) {
             return $this->view();
         }
 
-        if (!file_exists(__DIR__ . '/../data.json')) {
+        if (!file_exists(__DIR__ . '/../../data.json')) {
             return $this->view();
         }
 
-        $json = file_get_contents(__DIR__ . '/../data.json');
+        $json = file_get_contents(__DIR__ . '/../../data.json');
         $data = json_decode($json);
 
         $users = new ArrayList(Type::Object);
@@ -80,7 +80,7 @@ class AccountController extends AbstractController
         $authentication = $this->HttpContext->Authentication;
         $authentication->SignIn($userPrincipal, $form->Remember);
 
-        return $this->redirect('/account/index');
+        return $this->redirect('/user/account/index');
     }
 
     public function register(RegisterForm $form): IActionResult
@@ -91,8 +91,8 @@ class AccountController extends AbstractController
         }
 
         $data = [];
-        if (file_exists(__DIR__ . '/../data.json')) {
-            $json = file_get_contents(__DIR__ . '/../data.json');
+        if (file_exists(__DIR__ . '/../../data.json')) {
+            $json = file_get_contents(__DIR__ . '/../../data.json');
             $data = json_decode($json, true);
         }
 
@@ -103,7 +103,7 @@ class AccountController extends AbstractController
 
         $data[] = $user;
         $json = json_encode($data, JSON_PRETTY_PRINT);
-        file_put_contents(__DIR__ . '/../data.json', $json);
+        file_put_contents(__DIR__ . '/../../data.json', $json);
 
         $this->ViewData['success'] = true;
         return $this->view();
@@ -113,6 +113,6 @@ class AccountController extends AbstractController
     {
         $authentication = $this->HttpContext->Authentication;
         $authentication->SignOut();
-        return $this->redirect('/account/login');
+        return $this->redirect('/user/account/login');
     }
 }
