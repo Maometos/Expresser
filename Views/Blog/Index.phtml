@@ -1,0 +1,81 @@
+<?= $this->layout('Shared/Layout') ?>
+
+<div class="d-flex flex-column justify-content-center text-center" style="height: 250px; background-image: url(/images/113-800x200.jpg); background-size: cover;">
+   <h1 class="text-info display-2 mx-auto fw-normal" style="text-shadow: 2px 2px 8px #000;">Our Blog</h1>
+   <p class="lead w-75 mx-auto text-white fw-normal" style="text-shadow: 2px 2px 8px #000;">Will keep you updated</p>
+</div>
+<div class="container">
+   <br><br>
+   <div class="row">
+      <div class="col-md-8">
+         <a class="text-decoration-none text-dark" href="/blog/post">
+            <div class="card mb-3 shadow-sm">
+               <div class="row g-0">
+                  <div class="col-md-5">
+                     <img class="img-fluid w-100 h-100" src="/images/365-300x200.jpg" alt="...">
+                  </div>
+                  <div class="col-md-7">
+                     <div class="card-body">
+                        <h5 class="card-title">Post title</h5>
+                        <p class="card-text">
+                           <small class="text-muted">On February 23, 2019 | By john doe</small>
+                        </p>
+                        <p class="card-text">
+                           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores iure, delectus minus facere similique laudantium praesentium! Neque eligendi consectetur quo repellendus ipsam sapiente mollitia optio quas pariatur perferendis. Hic, optio!
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </a>
+         <a class="text-decoration-none text-dark" href="/blog/post">
+            <div class="card mb-3 shadow-sm">
+               <div class="row g-0">
+                  <div class="col-md-5">
+                     <img class="img-fluid w-100 h-100" src="/images/401-300x200.jpg" alt="...">
+                  </div>
+                  <div class="col-md-7">
+                     <div class="card-body">
+                        <h5 class="card-title">Post title</h5>
+                        <p class="card-text">
+                           <small class="text-muted">On February 23, 2019 | By john doe</small>
+                        </p>
+                        <p class="card-text">
+                           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, enim. Magnam veritatis, aut tenetur pariatur dignissimos neque. Praesentium temporibus, vitae provident id esse, corporis dolorum sapiente impedit culpa eum fuga.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </a>
+         <a class="text-decoration-none text-dark" href="/blog/post">
+            <div class="card mb-3 shadow-sm">
+               <div class="row g-0">
+                  <div class="col-md-5">
+                     <img class="img-fluid w-100 h-100" src="/images/425-300x200.jpg" alt="...">
+                  </div>
+                  <div class="col-md-7">
+                     <div class="card-body">
+                        <h5 class="card-title">Post title</h5>
+                        <p class="card-text">
+                           <small class="text-muted">On February 23, 2019 | By john doe</small>
+                        </p>
+                        <p class="card-text">
+                           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel deserunt debitis possimus. Recusandae, soluta officia. Pariatur similique quasi fugiat quis nam quam esse inventore praesentium soluta, nihil, suscipit cum aperiam!
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </a>
+         <nav class="blog-pagination text-end" aria-label="Pagination">
+            <a class="btn btn-outline-secondary shadow-sm" style="width: 80px" href="#" >Newer</a>
+            <a class="btn btn-outline-secondary shadow-sm" style="width: 80px" href="#">Older</a>
+         </nav>
+         <br>
+      </div>
+      <div class="col-md-4">
+         <?= $this->renderPartial('Shared/SideBar') ?>
+      </div>
+   </div>
+</div>
