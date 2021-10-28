@@ -22,4 +22,9 @@ class PostsController extends AbstractController
     {
         return $this->view();
     }
+
+    public function edit() : IActionResult
+    {
+        return $this->view();
+    }
 }

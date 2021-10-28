@@ -1,0 +1,196 @@
+<?= $this->layout('Shared/Layout') ?>
+
+<!-- Include stylesheet -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<div class="container-fluid" style="background-color: #f0f4f7;">
+   <div class="row">
+      <aside class="bg-white" style="width: 200px;">
+         <?= $this->renderPartial('Shared/UserSidebar') ?>
+      </aside>
+      <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 500px; width: 400px">
+         <header class="px-1 mb-1">
+            <div class="row">
+               <div class="col">
+                  <h3>Edit Article</h3>
+               </div>
+               <div class="col">
+                  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                     <ol class="breadcrumb justify-content-end mt-1">
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/posts">Posts</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
+         </header>
+         <form method="post" action="/user/posts/new">
+            <div class="row">
+               <div class="col-md-8">
+                  <div class="card mb-3">
+                     <div class="card-body p-4">
+                        <div class="mb-3">
+                           <label for="title" class="form-label">Title</label>
+                           <input type="text" class="form-control" id="title" name="Title">
+                        </div>
+                        <div class="mb-3">
+                           <label for="content" class="form-label">Content</label>
+                           <textarea id="content" name="Content" style="display: none;"></textarea>
+                           <div id="editor" style="height: 450px;"></div>
+                        </div>
+                        <div class="mb-1">
+                           <label for="excerpt" class="form-label">Excerpt</label>
+                           <textarea class="form-control" id="excerpt" name="Excerpt" rows="3"></textarea>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="card mb-3">
+                     <div class="card-header bg-white">
+                        Status
+                     </div>
+                     <div class="card-body">
+                        <select class="form-select" id="status" name="Status">
+                           <option value="1">Draft</option>
+                           <option value="2">Published</option>
+                           <option value="3">Archived</option>
+                        </select>
+                     </div>
+                     <div class="card-footer text-end bg-white">
+                        <a class="btn btn-outline-secondary border-0" href="/user/posts" style="height: 38px; width: 49%"><i class="bi bi-x-lg me-1"></i>Cancel</a>
+                        <button type="submit" class="btn btn-outline-primary border-0" style="height: 38px; width: 49%"><i class="bi bi-check-lg me-1"></i>Save</button>
+                     </div>
+                  </div>
+                  <div class="card mb-3">
+                     <div class="card-header bg-white">
+                        Date
+                     </div>
+                     <div class="card-body">
+                        <input type="date" class="form-control" id="date" name="Date">
+                     </div>
+                  </div>
+                  <div class="card mb-3">
+                     <div class="card-header bg-white">
+                        Section
+                     </div>
+                     <div class="card-body">
+                        <select class="form-select" id="section" name="Section">
+                           <option value="1">Events</option>
+                           <option value="2">News</option>
+                           <option value="3">Trending</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="card mb-3">
+                     <div class="card-header bg-white">
+                        Image
+                     </div>
+                     <div class="card-body">
+                        <div class="input-group">
+                           <input type="text" class="form-control" id="image" name="Image" aria-label="Recipient's username" aria-describedby="button-addon">
+                           <button type="button" class="btn btn-outline-secondary" id="open">Open</button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card mb-3">
+                     <div class="card-header bg-white">
+                        Permalink
+                     </div>
+                     <div class="card-body">
+                        <input type="text" class="form-control" id="slug" name="Slug">
+                     </div>
+                  </div>
+                  <div class="card mb-3">
+                     <div class="card-header bg-white">
+                        Options
+                     </div>
+                     <div class="card-body">
+                        <div>
+                           <input class="form-check-input" type="checkbox" id="commented" name="Commented" checked>
+                           <label class="form-check-label" for="commented">Allow Comments</label>
+                        </div>
+                        <div>
+                           <input class="form-check-input" type="checkbox" id="featured" name="Featured">
+                           <label class="form-check-label" for="featured">Featured</label>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+   var toolbarOptions = [
+      [{
+         'font': []
+      }],
+      [{
+         'header': [1, 2, 3, 4, 5, 6, false]
+      }],
+      ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+      [{
+         'color': []
+      }, {
+         'background': []
+      }], // dropdown with defaults from theme
+      [{
+         'script': 'sub'
+      }, {
+         'script': 'super'
+      }], // superscript/subscript
+      [{
+         'list': 'ordered'
+      }, {
+         'list': 'bullet'
+      }],
+      [{
+         'direction': 'rtl'
+      }, , {
+         'align': []
+      }], // text direction
+      ['blockquote', 'code-block'],
+      ['clean'] // remove formatting button
+   ];
+
+   var quill = new Quill('#editor', {
+      modules: {
+         toolbar: toolbarOptions
+      },
+      theme: 'snow'
+   });
+
+   quill.on('text-change', update);
+   update();
+
+   function update() {
+      var content = document.querySelector('#content');
+      content.innerHTML = quill.root.innerHTML;
+   }
+
+   var title = document.getElementById('title');
+   title.onchange = function() {
+      var slug = document.getElementById('slug');
+      slug.value = title.value.replace(/ /g, '-');
+   }
+
+   var open = document.getElementById('open');
+   open.onclick = function() {
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = function() {
+         var files = Array.from(input.files);
+         var image = document.getElementById('image');
+         image.value = files[0].name;
+      };
+      input.click();
+   }
+</script>
