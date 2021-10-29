@@ -1,13 +1,25 @@
 <?= $this->layout('Shared/Layout') ?>
 
 <div class="container-fluid" style="background-color: #f0f4f7;">
-	<div class="row">
+   <div class="row">
       <aside class="bg-white" style="width: 200px;">
          <?= $this->renderPartial('Shared/UserSidebar') ?>
       </aside>
-		<div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 400px; width: 400px">
-         <header class="my-3">
-            <h3 class="text-uppercase">Articles</h3>
+      <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 400px; width: 400px">
+         <header class="px-1 mb-1">
+            <div class="row">
+               <div class="col">
+                  <h3>Articles</h3>
+               </div>
+               <div class="col">
+                  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                     <ol class="breadcrumb justify-content-end mt-1">
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Articles</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
          </header>
          <section>
             <div class="row mb-3">
@@ -35,35 +47,35 @@
                      <tbody>
                         <tr class="row">
                            <td class="col-sm-1"><span class="form-check"><input type="checkbox" name="Action1" class="form-check-input"></span></td>
-                           <td class="col-sm-4">Simple Post</td>
+                           <td class="col-sm-4"><a class="text-decoration-none text-dark" href="/user/posts/edit">Simple Post</a></td>
                            <td class="col-sm-3">Technology</td>
                            <td class="col-sm-2">Draft</td>
                            <td class="col-sm-2">2021-12-23</td>
                         </tr>
                         <tr class="row">
                            <td class="col-sm-1"><span class="form-check"><input type="checkbox" name="Action2" class="form-check-input"></span></td>
-                           <td class="col-sm-4">My Article</td>
+                           <td class="col-sm-4"><a class="text-decoration-none text-dark" href="/user/posts/edit">My Article</a></td>
                            <td class="col-sm-3">News</td>
                            <td class="col-sm-2">Pending</td>
                            <td class="col-sm-2">2021-11-16</td>
                         </tr>
                         <tr class="row">
                            <td class="col-sm-1"><span class="form-check"><input type="checkbox" name="Action3" class="form-check-input"></span></td>
-                           <td class="col-sm-4">New Events</td>
+                           <td class="col-sm-4"><a class="text-decoration-none text-dark" href="/user/posts/edit">New Events</a></td>
                            <td class="col-sm-3">Event</td>
                            <td class="col-sm-2">Published</td>
                            <td class="col-sm-2">2021-11-05</td>
                         </tr>
                         <tr class="row">
                            <td class="col-sm-1"><span class="form-check"><input type="checkbox" name="Action4" class="form-check-input"></span></td>
-                           <td class="col-sm-4">Try our product</td>
+                           <td class="col-sm-4"><a class="text-decoration-none text-dark" href="/user/posts/edit">Try our product</a></td>
                            <td class="col-sm-3">Entertinement</td>
                            <td class="col-sm-2">Published</td>
                            <td class="col-sm-2">2021-10-26</td>
                         </tr>
                         <tr class="row">
                            <td class="col-sm-1"><span class="form-check"><input type="checkbox" name="Action5" class="form-check-input"></span></td>
-                           <td class="col-sm-4">Thornton</td>
+                           <td class="col-sm-4"><a class="text-decoration-none text-dark" href="/user/posts/edit">Thornton</a></td>
                            <td class="col-sm-3">Sport</td>
                            <td class="col-sm-2">Archived</td>
                            <td class="col-sm-2">2021-10-21</td>
@@ -90,23 +102,19 @@
                </div>
             </div>
          </section>
-		</div>
-	</div>
+      </div>
+   </div>
 </div>
 
 <script>
-
-   function checkAll()
-   {
+   function checkAll() {
       var table = document.getElementById('PostList');
       var val = table.rows[0].cells[0].children[0].children[0].checked;
-      for (var i = 1; i < table.rows.length; i++)
-      {
-            table.rows[i].cells[0].children[0].children[0].checked = val;
+      for (var i = 1; i < table.rows.length; i++) {
+         table.rows[i].cells[0].children[0].children[0].checked = val;
       }
    }
 
    var checkBox = document.getElementById("Checker");
    checkBox.onclick = checkAll;
-
 </script>
