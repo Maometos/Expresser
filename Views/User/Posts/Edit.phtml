@@ -37,7 +37,7 @@
                         <div class="mb-3">
                            <label for="content" class="form-label">Content</label>
                            <textarea id="content" name="Content" style="display: none;"></textarea>
-                           <div id="editor" style="height: 450px;"></div>
+                           <div id="editor" style="height: 395px;"></div>
                         </div>
                         <div class="mb-1">
                            <label for="excerpt" class="form-label">Excerpt</label>
@@ -47,22 +47,6 @@
                   </div>
                </div>
                <div class="col-md-4">
-                  <div class="card mb-3">
-                     <div class="card-header bg-white">
-                        Status
-                     </div>
-                     <div class="card-body">
-                        <select class="form-select" id="status" name="Status">
-                           <option value="1">Draft</option>
-                           <option value="2">Published</option>
-                           <option value="3">Archived</option>
-                        </select>
-                     </div>
-                     <div class="card-footer text-end bg-white">
-                        <a class="btn btn-outline-secondary border-0" href="/user/posts" style="height: 38px; width: 49%"><i class="bi bi-x-lg me-1"></i>Cancel</a>
-                        <button type="submit" class="btn btn-outline-primary border-0" style="height: 38px; width: 49%"><i class="bi bi-check-lg me-1"></i>Save</button>
-                     </div>
-                  </div>
                   <div class="card mb-3">
                      <div class="card-header bg-white">
                         Date
@@ -104,6 +88,18 @@
                   </div>
                   <div class="card mb-3">
                      <div class="card-header bg-white">
+                        Status
+                     </div>
+                     <div class="card-body">
+                        <select class="form-select" id="status" name="Status">
+                           <option value="1">Draft</option>
+                           <option value="2">Published</option>
+                           <option value="3">Archived</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="card mb-3">
+                     <div class="card-header bg-white">
                         Options
                      </div>
                      <div class="card-body">
@@ -118,6 +114,10 @@
                      </div>
                   </div>
                </div>
+            </div>
+            <div class="text-end">
+               <a class="btn btn-secondary" href="/user/posts" style="height: 38px; width: 100px"><i class="bi bi-x-lg me-1"></i>Cancel</a>
+               <button type="submit" class="btn btn-primary" style="height: 38px; width: 100px"><i class="bi bi-check-lg me-1"></i>Save</button>
             </div>
          </form>
       </div>
