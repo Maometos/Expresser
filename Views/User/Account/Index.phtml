@@ -1,14 +1,30 @@
 <?= $this->layout('Shared/Layout') ?>
 
 <div class="container-fluid" style="background-color: #f0f4f7;">
-	<div class="row">
-      <aside class="bg-white" style="width: 250px;">
+   <div class="row">
+      <aside class="bg-white" style="width: 200px;">
          <?= $this->renderPartial('Shared/UserSidebar') ?>
       </aside>
-		<div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 500px; width: 400px">
-			<div class="mb-3">
-				<div class="row row-cols-md-1 row-cols-lg-2 g-3">
-					<div class="col">
+      <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 500px; width: 400px">
+         <header class="px-1 mb-3">
+            <div class="row">
+               <div class="col">
+                  <h3 style="color: #555">Dashboard</h3>
+               </div>
+               <div class="col">
+                  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                     <ol class="breadcrumb justify-content-end mt-1">
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Account</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
+            <hr class="my-1">
+         </header>
+         <div class="mb-3">
+            <div class="row row-cols-md-1 row-cols-lg-2 g-3">
+               <div class="col">
                   <div class="card flex-row h-100">
                      <div class="card-header border-bottom-0">
                         <img src="/icons/user-icon.svg" width="100" height="100" alt="...">
@@ -18,8 +34,8 @@
                         <p class="card-text">Author</p>
                      </div>
                   </div>
-					</div>
-					<div class="col">
+               </div>
+               <div class="col">
                   <div class="card flex-row h-100">
                      <div class="card-body text-center my-auto border-end">
                         <h5 class="card-title">Followers</h5>
@@ -30,10 +46,10 @@
                         <p class="card-text fs-5">24</p>
                      </div>
                   </div>
-					</div>
-				</div>
-			</div>
-			<section class="mb-3">
+               </div>
+            </div>
+         </div>
+         <section class="mb-3">
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 g-3">
                <div class="col">
                   <div class="card flex-row h-100 shadow-sm">
@@ -105,8 +121,8 @@
                </div>
             </div>
          </section>
-		</div>
-	</div>
+      </div>
+   </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.1/chart.min.js"></script>
@@ -121,25 +137,21 @@
    ];
    const posts = {
       labels: labels,
-      datasets: [
-         {
-            label: 'Monthley Posts',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30],
-         }
-      ]
+      datasets: [{
+         label: 'Monthley Posts',
+         backgroundColor: 'rgb(255, 99, 132)',
+         borderColor: 'rgb(255, 99, 132)',
+         data: [0, 10, 5, 2, 20, 30],
+      }]
    };
    const views = {
       labels: labels,
-      datasets: [
-         {
-            label: 'Monthley Views',
-            backgroundColor: 'rgb(132, 99, 255)',
-            borderColor: 'rgb(132, 99, 255)',
-            data: [0, 10, 5, 2, 20, 30],
-         }
-      ]
+      datasets: [{
+         label: 'Monthley Views',
+         backgroundColor: 'rgb(132, 99, 255)',
+         borderColor: 'rgb(132, 99, 255)',
+         data: [0, 10, 5, 2, 20, 30],
+      }]
    };
 
    const PostConfig = {
@@ -153,7 +165,7 @@
       data: views,
       options: {}
    };
-         
+
    var PostChart = new Chart(
       document.getElementById('PostChart'),
       PostConfig
