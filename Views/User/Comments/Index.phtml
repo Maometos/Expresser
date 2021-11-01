@@ -1,0 +1,136 @@
+<?= $this->layout('Shared/Layout') ?>
+
+<div class="container-fluid" style="background-color: #f0f4f7;">
+   <div class="row">
+      <aside class="bg-white" style="width: 200px;">
+         <?= $this->renderPartial('Shared/UserSidebar') ?>
+      </aside>
+      <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 400px; width: 400px">
+         <header class="px-1 mb-3" style="border-bottom: 1px solid #bbb;">
+            <div class="row">
+               <div class="col">
+                  <h3 class="mb-3" style="color: #555">Comments</h3>
+               </div>
+               <div class="col">
+                  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                     <ol class="breadcrumb justify-content-end mt-1">
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Comments</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
+         </header>
+         <nav class="mb-3" style="border-bottom: 1px solid #bbb;">
+            <div class="row mb-3">
+               <div class="col-md">
+                  <input type="checkbox" id="checker" class="form-check-input" style="margin: 10px;">
+                  <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-trash"> </i>Delete</a>
+                  <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-x-circle"> </i>Block</a>
+                  <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-check-circle"> </i>Approve</a>
+               </div>
+               <div class="col-md">
+                  <select id="filter" class="form-select ms-auto" id="status" name="Status" style="width: 260px;">
+                     <option value="1">All</option>
+                     <option value="2">Mine</option>
+                     <option value="2">Pending</option>
+                     <option value="3">Blocked</option>
+                     <option value="2">Approved</option>
+                  </select>
+               </div>
+            </div>
+         </nav>
+         <section id="content" style="min-height: 360px">
+            <div class="card flex-row shadow-sm mb-3">
+               <div class="mx-2">
+                  <input type="checkbox" class="form-check-input mt-2" name="Action">
+               </div>
+               <div class="card-header border-bottom-0 bg-white px-0">
+                  <img src="/icons/user-icon.svg" width="100" height="100" alt="...">
+               </div>
+               <div class="card-body">
+                  <div class="row mb-2">
+                     <div class="col-md-8">
+                        <small class="text-muted">
+                           <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">John Doe</a> commented on <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">My Post</a>
+                        </small>
+                     </div>
+                     <div class="col-md-4 text-end">
+                        <small class="text-dark">11 May 2021</small>
+                     </div>
+                  </div>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae autem, temporibus veritatis porro eius dignissimos laudantium asperiores at fugit nisi cupiditate aliquam animi illum id vero mollitia quae minima?
+                  </p>
+               </div>
+            </div>
+            <div class="card flex-row shadow-sm mb-3">
+               <div class="mx-2">
+                  <input type="checkbox" class="form-check-input mt-2" name="Action2">
+               </div>
+               <div class="card-header border-bottom-0 bg-white px-0">
+                  <img src="/icons/user-icon.svg" width="100" height="100" alt="...">
+               </div>
+               <div class="card-body">
+                  <div class="row mb-2">
+                     <div class="col-md-8">
+                        <small class="text-muted">
+                           <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">John Doe</a> commented on <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">My Post</a>
+                        </small>
+                     </div>
+                     <div class="col-md-4 text-end">
+                        <small class="text-dark">11 May 2021</small>
+                     </div>
+                  </div>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae autem, temporibus veritatis porro eius dignissimos laudantium asperiores at fugit nisi cupiditate aliquam animi illum id vero mollitia quae minima?
+                  </p>
+               </div>
+            </div>
+            <div class="card flex-row shadow-sm mb-3">
+               <div class="mx-2">
+                  <input type="checkbox" class="form-check-input mt-2" name="Action3">
+               </div>
+               <div class="card-header border-bottom-0 bg-white px-0">
+                  <img src="/icons/user-icon.svg" width="100" height="100" alt="...">
+               </div>
+               <div class="card-body">
+                  <div class="row mb-2">
+                     <div class="col-md-8">
+                        <small class="text-muted">
+                           <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">John Doe</a> commented on <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">My Post</a>
+                        </small>
+                     </div>
+                     <div class="col-md-4 text-end">
+                        <small class="text-dark">11 May 2021</small>
+                     </div>
+                  </div>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae autem, temporibus veritatis porro eius dignissimos laudantium asperiores at fugit nisi cupiditate aliquam animi illum id vero mollitia quae minima?
+                  </p>
+               </div>
+            </div>
+         </section>
+         <nav aria-label="Pagination">
+            <div class="text-center">
+               <a class="btn btn-outline-secondary shadow-sm" style="width: 100px" href="#"><i class="bi bi-chevron-double-left"></i> Last</a>
+               <a class="btn btn-outline-secondary shadow-sm" style="width: 100px" href="#"><i class="bi bi-chevron-left"></i> Newer</a>
+               <a class="btn btn-outline-secondary shadow-sm" style="width: 100px" href="#">Older <i class="bi bi-chevron-right"></i></a>
+               <a class="btn btn-outline-secondary shadow-sm" style="width: 100px" href="#">First <i class="bi bi-chevron-double-right"></i></a>
+            </div>
+         </nav>
+      </div>
+   </div>
+</div>
+
+<script>
+   var checker = document.getElementById("checker");
+
+   function checkAll() {
+      var content = document.getElementById('content');
+      for (var i = 0; i < content.children.length; i++) {
+         content.children[i].children[0].children[0].checked = checker.checked;
+      }
+   }
+   checker.onclick = checkAll;
+</script>
