@@ -1,0 +1,126 @@
+<?= $this->layout('Shared/Layout') ?>
+
+<div class="container-fluid">
+   <div class="row">
+      <aside class="bg-white" style="width: 200px;">
+         <?= $this->renderPartial('Shared/UserSidebar') ?>
+      </aside>
+      <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 400px; width: 400px">
+         <header class="px-1">
+            <div class="row">
+               <div class="col">
+                  <h3 class="mb-3" style="color: #555">Gallery</h3>
+               </div>
+               <div class="col">
+                  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                     <ol class="breadcrumb justify-content-end mt-1">
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
+         </header>
+         <nav class="bg-white border shadow-sm mb-3">
+            <div class="row">
+               <div class="col mt-0">
+                  <div class="m-3">
+                     <a class="btn btn-primary" href=""><i class="bi bi-plus-lg"></i> Add Media</a>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="d-flex justify-content-end m-3">
+                     <label for="inputEmail3" class="col-form-label">Sort by</label>
+                     <select id="sort" class="form-select ms-2" id="status" name="Status" style="width: 200px;">
+                        <option value="1">Title</option>
+                        <option value="2">Date</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <section id="gallery" class="overflow-auto bg-light border p-3" style="height: 75vh">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3">
+               <div class="col">
+                  <img class="img-thumbnail img-fluid w-100 h-100" src="/images/326-500x300.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal1">
+               </div>
+               <div class="col">
+                  <img class="img-thumbnail img-fluid w-100 h-100" src="/images/365-300x200.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal2">
+               </div>
+               <div class="col">
+                  <img class="img-thumbnail img-fluid w-100 h-100" src="/images/401-300x200.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal3">
+               </div>
+               <div class="col">
+                  <img class="img-thumbnail img-fluid w-100 h-100" src="/images/425-300x200.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal4">
+               </div>
+            </div>
+         </section>
+         <section id="lightbox">
+            <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel1">Image 1</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body p-0">
+                        <img class="img-fluid w-100 h-auto" src="/images/326-500x300.jpg">
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary border-0" data-bs-dismiss="modal"><i class="bi bi-trash me-2"></i>Delete</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel2">Image 2</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body p-0">
+                        <img class="img-fluid w-100 h-auto"src="/images/365-300x200.jpg">
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary border-0" data-bs-dismiss="modal"><i class="bi bi-trash me-2"></i>Delete</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel3">Image 3</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body p-0">
+                        <img class="img-fluid w-100 h-auto" src="/images/401-300x200.jpg">
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary border-0" data-bs-dismiss="modal"><i class="bi bi-trash me-2"></i>Delete</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal fade" id="imageModal4" tabindex="-1" aria-labelledby="imageModalLabel4" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel4">Image 4</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body p-0">
+                        <img class="img-fluid w-100 h-auto" src="/images/425-300x200.jpg">
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary border-0" data-bs-dismiss="modal"><i class="bi bi-trash me-2"></i>Delete</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+</div>
