@@ -2,9 +2,9 @@
 
 namespace Application\Controllers\User;
 
-use DevNet\Core\Controller\AbstractController;
-use DevNet\Core\Controller\IActionResult;
-use DevNet\Core\Controller\Filters\AuthorizeFilter;
+use DevNet\Web\Controller\AbstractController;
+use DevNet\Web\Controller\IActionResult;
+use DevNet\Web\Controller\Filters\AuthorizeFilter;
 
 class PostsController extends AbstractController
 {
