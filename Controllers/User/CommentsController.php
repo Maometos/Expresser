@@ -2,11 +2,11 @@
 
 namespace Application\Controllers\User;
 
-use DevNet\Web\Controller\AbstractController;
-use DevNet\Web\Controller\IActionResult;
-use DevNet\Web\Controller\Filters\AuthorizeFilter;
+use DevNet\Web\Mvc\Controller;
+use DevNet\Web\Mvc\IActionResult;
+use DevNet\Web\Mvc\Filters\AuthorizeFilter;
 
-class CommentsController extends AbstractController
+class CommentsController extends Controller
 {
     public function __construct()
     {

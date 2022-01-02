@@ -2,17 +2,17 @@
 
 namespace Application\Controllers;
 
-use DevNet\Web\Controller\AbstractController;
-use DevNet\Web\Controller\IActionResult;
+use DevNet\Web\Mvc\Controller;
+use DevNet\Web\Mvc\IActionResult;
 
-class BlogController extends AbstractController
+class BlogController extends Controller
 {
-    public function index() : IActionResult
+    public function index(): IActionResult
     {
         return $this->view();
     }
 
-    public function post() : IActionResult
+    public function post(): IActionResult
     {
         return $this->view();
     }
