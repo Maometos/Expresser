@@ -1,4 +1,4 @@
-<?= $this->layout('Shared/Layout') ?>
+<?= $this->layout('Shared/layout') ?>
 
 <!-- Include stylesheet -->
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -6,20 +6,20 @@
 <div class="container-fluid">
    <div class="row">
       <aside class="bg-white" style="width: 200px;">
-         <?= $this->renderPartial('Shared/UserSidebar') ?>
+         <?= $this->renderPartial('Shared/userSidebar') ?>
       </aside>
       <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 500px; width: 400px">
          <header class="px-1">
             <div class="row">
                <div class="col">
-                  <h3 class="mb-3" style="color: #555">Edit Article</h3>
+                  <h3 class="mb-3" style="color: #555">New Article</h3>
                </div>
                <div class="col">
                   <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
                      <ol class="breadcrumb justify-content-end mt-1">
                         <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
                         <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/posts">Articles</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                        <li class="breadcrumb-item active" aria-current="page">New</li>
                      </ol>
                   </nav>
                </div>
