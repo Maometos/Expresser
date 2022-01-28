@@ -1,12 +1,12 @@
 <?= $this->layout('Shared/layout') ?>
 
-<div class="container-fluid" style="background-color: #f0f4f7;">
+<div class="container-fluid">
    <div class="row">
       <aside class="bg-white" style="width: 200px;">
          <?= $this->renderPartial('Shared/userSidebar') ?>
       </aside>
       <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 400px; width: 400px">
-         <header class="px-1 mb-3" style="border-bottom: 1px solid #bbb;">
+         <header class="px-1">
             <div class="row">
                <div class="col">
                   <h3 class="mb-3" style="color: #555">Comments</h3>
@@ -21,28 +21,32 @@
                </div>
             </div>
          </header>
-         <nav class="mb-3" style="border-bottom: 1px solid #bbb;">
-            <div class="row mb-3">
-               <div class="col-md">
-                  <input type="checkbox" id="checker" class="form-check-input" style="margin: 10px;">
-                  <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-trash"> </i>Delete</a>
-                  <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-x-circle"> </i>Block</a>
-                  <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-check-circle"> </i>Approve</a>
-               </div>
-               <div class="col-md">
-                  <select id="filter" class="form-select ms-auto" id="status" name="Status" style="width: 260px;">
-                     <option value="1">All</option>
-                     <option value="2">Mine</option>
-                     <option value="2">Pending</option>
-                     <option value="3">Blocked</option>
-                     <option value="2">Approved</option>
-                  </select>
-               </div>
-            </div>
-         </nav>
          <section id="content" style="min-height: 360px">
+            <nav class="bg-white border shadow-sm mb-3">
+               <div class="row">
+                  <div class="col-lg-8 mt-0">
+                     <div class="m-3">
+                        <input type="checkbox" id="checker" class="form-check-input" style="margin: 10px;">
+                        <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-trash"> </i>Delete</a>
+                        <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-x-circle"> </i>Block</a>
+                        <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-check-circle"> </i>Approve</a>
+                     </div>
+                  </div>
+                  <div class="col-lg-4">
+                     <div class="m-3">
+                        <select id="filter" class="form-select ms-auto" id="status" name="Status" style="width: 260px;">
+                           <option value="1">All</option>
+                           <option value="2">Mine</option>
+                           <option value="2">Pending</option>
+                           <option value="3">Blocked</option>
+                           <option value="2">Approved</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+            </nav>
             <div class="card flex-row shadow-sm mb-3">
-               <div class="mx-2">
+               <div class="m-4">
                   <input type="checkbox" class="form-check-input mt-2" name="Action">
                </div>
                <div class="card-header border-bottom-0 bg-white px-0">
@@ -65,7 +69,7 @@
                </div>
             </div>
             <div class="card flex-row shadow-sm mb-3">
-               <div class="mx-2">
+               <div class="m-4">
                   <input type="checkbox" class="form-check-input mt-2" name="Action2">
                </div>
                <div class="card-header border-bottom-0 bg-white px-0">
@@ -88,7 +92,7 @@
                </div>
             </div>
             <div class="card flex-row shadow-sm mb-3">
-               <div class="mx-2">
+               <div class="m-4">
                   <input type="checkbox" class="form-check-input mt-2" name="Action3">
                </div>
                <div class="card-header border-bottom-0 bg-white px-0">
