@@ -1,6 +1,6 @@
 <?= $this->layout('Shared/layout') ?>
 
-<div class="container-fluid">
+<div class="container">
    <div class="row">
       <aside class="bg-white" style="width: 200px;">
          <?= $this->renderPartial('Shared/userSidebar') ?>
@@ -34,7 +34,7 @@
                   </div>
                   <div class="col-lg-4">
                      <div class="m-3">
-                        <select id="filter" class="form-select ms-auto" id="status" name="Status" style="width: 260px;">
+                        <select id="filter" class="form-select ms-auto" id="status" name="Status">
                            <option value="1">All</option>
                            <option value="2">Mine</option>
                            <option value="2">Pending</option>
