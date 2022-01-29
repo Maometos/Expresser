@@ -19,137 +19,133 @@
                      <ol class="breadcrumb justify-content-end mt-1">
                         <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
                         <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/posts">Articles</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                        <li class="breadcrumb-item active" aria-current="page">New</li>
                      </ol>
                   </nav>
                </div>
             </div>
          </header>
          <form method="post" action="/user/posts/new">
-            <nav class="bg-white border shadow-sm mb-3">
-               <div class="row flex-lg-row-reverse">
-                  <div class="col-lg-4 mt-0 g-2">
-                     <div class="row g-2 m-3">
-                        <div class="col mt-0">
-                           <a class="btn btn-outline-secondary w-100" href="/user/posts"><i class="bi bi-x-lg me-1"></i>Cancel</a>
-                        </div>
-                        <div class="col mt-0">
-                           <button type="submit" class="btn btn-primary w-100"><i class="bi bi-check-lg me-1"></i>Save</button>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-8">
+            <div class="row g-3">
+               <div class="col-lg-8">
+                  <div class="bg-white border shadow-sm mb-3">
                      <div class="m-3">
                         <input type="text" class="form-control border-0 border-bottom" id="title" name="Title" placeholder="Title">
                      </div>
                   </div>
-               </div>
-            </nav>
-            <div class="row g-3">
-               <div class="col-lg-8">
                   <textarea id="content" name="Content" style="display: none;"></textarea>
                   <div id="editor" style="height: 395px;"></div>
                </div>
                <div class="col-lg-4">
-                  <div class="accordion" id="meta-data">
-                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading-status">
-                           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-status" aria-expanded="true" aria-controls="collapse-status">
-                              Status
-                           </button>
-                        </h2>
-                        <div id="collapse-status" class="accordion-collapse collapse show" aria-labelledby="heading-status" data-bs-parent="#meta-data">
-                           <div class="accordion-body">
-                              <select class="form-select" id="status" name="Status">
-                                 <option value="1">Draft</option>
-                                 <option value="2">Published</option>
-                                 <option value="3">Archived</option>
-                              </select>
-                           </div>
+                  <div class="card shadow-sm">
+                     <div class="card-header bg-white">
+                        <div class="my-2">
+                           <a class="btn btn-outline-secondary" style="width: 49%;" href="/user/posts"><i class="bi bi-x-lg me-1"></i>Cancel</a>
+                           <button type="submit" class="btn btn-primary" style="width: 49%;"><i class="bi bi-check-lg me-1"></i>Save</button>
                         </div>
                      </div>
-                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading-date">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-date" aria-expanded="false" aria-controls="collapse-date">
-                              Date
-                           </button>
-                        </h2>
-                        <div id="collapse-date" class="accordion-collapse collapse" aria-labelledby="heading-date" data-bs-parent="#meta-data">
-                           <div class="accordion-body">
-                              <input type="date" class="form-control" id="date" name="Date">
-                           </div>
-                        </div>
-                     </div>
-                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading-sections">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sections" aria-expanded="false" aria-controls="collapse-sections">
-                              Sections
-                           </button>
-                        </h2>
-                        <div id="collapse-sections" class="accordion-collapse collapse" aria-labelledby="heading-sections" data-bs-parent="#meta-data">
-                           <div class="accordion-body">
-                              <select class="form-select" id="section" name="Section">
-                                 <option value="1">Events</option>
-                                 <option value="2">News</option>
-                                 <option value="3">Trending</option>
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading-image">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-image" aria-expanded="false" aria-controls="collapse-image">
-                              Image
-                           </button>
-                        </h2>
-                        <div id="collapse-image" class="accordion-collapse collapse" aria-labelledby="heading-image" data-bs-parent="#meta-data">
-                           <div class="accordion-body">
-                              <div class="input-group">
-                                 <input type="text" class="form-control" id="image" name="Image" aria-label="Recipient's username" aria-describedby="button-addon">
-                                 <button type="button" class="btn btn-outline-secondary" id="open">Open</button>
+                     <div class="card-body">
+                        <div class="accordion accordion-flush" id="meta-data">
+                           <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-status">
+                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-status" aria-expanded="true" aria-controls="collapse-status">
+                                    Status
+                                 </button>
+                              </h2>
+                              <div id="collapse-status" class="accordion-collapse collapse show" aria-labelledby="heading-status" data-bs-parent="#meta-data">
+                                 <div class="accordion-body">
+                                    <select class="form-select" id="status" name="Status">
+                                       <option value="1">Draft</option>
+                                       <option value="2">Published</option>
+                                       <option value="3">Archived</option>
+                                    </select>
+                                 </div>
                               </div>
                            </div>
-                        </div>
-                     </div>
-                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading-excerpt">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-excerpt" aria-expanded="false" aria-controls="collapse-excerpt">
-                              Excerpt
-                           </button>
-                        </h2>
-                        <div id="collapse-excerpt" class="accordion-collapse collapse" aria-labelledby="heading-excerpt" data-bs-parent="#meta-data">
-                           <div class="accordion-body">
-                              <textarea class="form-control" id="excerpt" name="Excerpt" rows="3"></textarea>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading-permalink">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-permalink" aria-expanded="false" aria-controls="collapse-permalink">
-                              Permalink
-                           </button>
-                        </h2>
-                        <div id="collapse-permalink" class="accordion-collapse collapse" aria-labelledby="heading-permalink" data-bs-parent="#meta-data">
-                           <div class="accordion-body">
-                              <input type="text" class="form-control" id="slug" name="Slug">
-                           </div>
-                        </div>
-                     </div>
-                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading-options">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-options" aria-expanded="false" aria-controls="collapse-options">
-                              Options
-                           </button>
-                        </h2>
-                        <div id="collapse-options" class="accordion-collapse collapse" aria-labelledby="heading-options" data-bs-parent="#meta-data">
-                           <div class="accordion-body">
-                              <div>
-                                 <input class="form-check-input" type="checkbox" id="commented" name="Commented" checked>
-                                 <label class="form-check-label" for="commented">Allow Comments</label>
+                           <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-date">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-date" aria-expanded="false" aria-controls="collapse-date">
+                                    Date
+                                 </button>
+                              </h2>
+                              <div id="collapse-date" class="accordion-collapse collapse" aria-labelledby="heading-date" data-bs-parent="#meta-data">
+                                 <div class="accordion-body">
+                                    <input type="date" class="form-control" id="date" name="Date">
+                                 </div>
                               </div>
-                              <div>
-                                 <input class="form-check-input" type="checkbox" id="featured" name="Featured">
-                                 <label class="form-check-label" for="featured">Featured</label>
+                           </div>
+                           <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-sections">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sections" aria-expanded="false" aria-controls="collapse-sections">
+                                    Sections
+                                 </button>
+                              </h2>
+                              <div id="collapse-sections" class="accordion-collapse collapse" aria-labelledby="heading-sections" data-bs-parent="#meta-data">
+                                 <div class="accordion-body">
+                                    <select class="form-select" id="section" name="Section">
+                                       <option value="1">Events</option>
+                                       <option value="2">News</option>
+                                       <option value="3">Trending</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-image">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-image" aria-expanded="false" aria-controls="collapse-image">
+                                    Image
+                                 </button>
+                              </h2>
+                              <div id="collapse-image" class="accordion-collapse collapse" aria-labelledby="heading-image" data-bs-parent="#meta-data">
+                                 <div class="accordion-body">
+                                    <div class="input-group">
+                                       <input type="text" class="form-control" id="image" name="Image" aria-label="Recipient's username" aria-describedby="button-addon">
+                                       <button type="button" class="btn btn-outline-secondary" id="open">Open</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-excerpt">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-excerpt" aria-expanded="false" aria-controls="collapse-excerpt">
+                                    Excerpt
+                                 </button>
+                              </h2>
+                              <div id="collapse-excerpt" class="accordion-collapse collapse" aria-labelledby="heading-excerpt" data-bs-parent="#meta-data">
+                                 <div class="accordion-body">
+                                    <textarea class="form-control" id="excerpt" name="Excerpt" rows="3"></textarea>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-permalink">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-permalink" aria-expanded="false" aria-controls="collapse-permalink">
+                                    Permalink
+                                 </button>
+                              </h2>
+                              <div id="collapse-permalink" class="accordion-collapse collapse" aria-labelledby="heading-permalink" data-bs-parent="#meta-data">
+                                 <div class="accordion-body">
+                                    <input type="text" class="form-control" id="slug" name="Slug">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-options">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-options" aria-expanded="false" aria-controls="collapse-options">
+                                    Options
+                                 </button>
+                              </h2>
+                              <div id="collapse-options" class="accordion-collapse collapse" aria-labelledby="heading-options" data-bs-parent="#meta-data">
+                                 <div class="accordion-body">
+                                    <div>
+                                       <input class="form-check-input" type="checkbox" id="commented" name="Commented" checked>
+                                       <label class="form-check-label" for="commented">Allow Comments</label>
+                                    </div>
+                                    <div>
+                                       <input class="form-check-input" type="checkbox" id="featured" name="Featured">
+                                       <label class="form-check-label" for="featured">Featured</label>
+                                    </div>
+                                 </div>
                               </div>
                            </div>
                         </div>
