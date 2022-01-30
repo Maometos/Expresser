@@ -11,19 +11,19 @@
    <div class="row">
       <div class="col-md-8">
          <article>
-         <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a class="text-decoration-none" href="/">Home</a></li>
-               <li class="breadcrumb-item"><a class="text-decoration-none" href="/blog">Blog</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Post Title</li>
-            </ol>
-         </nav>
-         <small class="text-muted">By john doe | On February 23, 2019</small>
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a class="text-decoration-none" href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a class="text-decoration-none" href="/blog">Blog</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Post Title</li>
+               </ol>
+            </nav>
+            <small class="text-muted">By john doe | On February 23, 2019</small>
             <p class="fst-italic">
                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores iure, delectus minus facere similique laudantium praesentium! Neque eligendi consectetur quo repellendus ipsam sapiente mollitia optio quas pariatur perferendis. Hic, optio!
             </p>
             <div class="bg-light p-5 rounded">
-               <h1>Thumbnail  example</h1>
+               <h1>Thumbnail example</h1>
                <p class="lead">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis cumque aliquid et est labore eaque similique perferendis a quo, corrupti consequatur voluptate mollitia, voluptatum nihil. Nostrum nesciunt earum iusto eos?
                </p>
@@ -40,9 +40,69 @@
             </p>
          </article>
          <br>
+         <aside id="comments">
+            <form action="">
+               <div class="form-floating mb-3">
+                  <textarea class="form-control border-0 border-bottom auto-size" id="comment" name="comment" oninput="this.parentNode.dataset.value = this.value" rows="1" placeholder="comment" style="overflow-y:hidden; resize: none"></textarea>
+                  <label for="floatingTextarea">Comments</label>
+               </div>
+               <div class="text-end">
+                  <button type="submit" class="btn btn-outline-secondary" style="width: 100px;"></i>Comment</button>
+               </div>
+            </form>
+            <div class="card border-0 flex-row mb-3">
+               <div class="card-header border-0 bg-white px-0 py-3">
+                  <img class="img-fluid" src="/icons/user-icon.svg" width="100" height="100" alt="...">
+               </div>
+               <div class="card-body">
+                  <div class="row mb-2">
+                     <div class="col-md-8">
+                        <small class="text-muted">
+                           <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">John Doe</a>
+                        </small>
+                        <small class="text-muted">on 11 May 2021</small>
+                     </div>
+                  </div>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae autem, temporibus veritatis porro eius dignissimos laudantium asperiores at fugit nisi cupiditate aliquam animi illum id vero mollitia quae minima?
+                  </p>
+               </div>
+            </div>
+            <div class="card border-0 flex-row mb-3">
+               <div class="card-header border-0 bg-white px-0 py-3">
+                  <img class="img-fluid" src="/icons/user-icon.svg" width="100" height="100" alt="...">
+               </div>
+               <div class="card-body">
+                  <div class="row mb-2">
+                     <div class="col-md-8">
+                        <small class="text-muted">
+                           <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">John Doe</a>
+                        </small>
+                        <small class="text-muted">on 11 May 2021</small>
+                     </div>
+                  </div>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae autem, temporibus veritatis porro eius dignissimos laudantium asperiores at fugit nisi cupiditate aliquam animi illum id vero mollitia quae minima?
+                  </p>
+               </div>
+            </div>
+         </aside>
+         <br>
       </div>
       <div class="col-md-4">
          <?= $this->renderPartial('Shared/sideBar') ?>
       </div>
    </div>
 </div>
+
+<script>
+   let textarea = document.querySelectorAll(".auto-size");
+   for (let i = 0; i < textarea.length; i++) {
+      textarea[i].addEventListener("input", OnInput, false);
+   }
+
+   function OnInput() {
+      this.style.height = "auto";
+      this.style.height = (this.scrollHeight) + "px";
+   }
+</script>
