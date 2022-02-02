@@ -1,0 +1,149 @@
+<?= $this->layout('Shared/layout') ?>
+
+<div class="container">
+   <div class="row">
+      <aside class="bg-white" style="width: 200px;">
+         <?= $this->renderPartial('Shared/userSidebar') ?>
+      </aside>
+      <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 400px; width: 400px">
+         <header class="px-1">
+            <div class="row">
+               <div class="col">
+                  <h3 class="mb-3" style="color: #555">Likes</h3>
+               </div>
+               <div class="col">
+                  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                     <ol class="breadcrumb justify-content-end mt-1">
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Comments</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
+         </header>
+         <nav class="bg-white border shadow-sm mb-3">
+            <div class="row">
+               <div class="col-lg-8 mt-0">
+                  <div class="m-3">
+                     <input type="checkbox" id="checker" class="form-check-input" style="margin: 10px 10px 0 0;">
+                     <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-x-circle"> </i>Remove</a>
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <div class="d-flex flex-row m-3">
+                     <label for="inputEmail3" class="col-form-label">Sort:</label>
+                     <select id="sort" class="form-select ms-2" id="status" name="Status">
+                        <option value="1">Date</option>
+                        <option value="2">Title</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <section id="content" style="min-height: 360px">
+            <div class="card flex-row shadow-sm mb-3">
+               <div style="padding: 16px 10px 0 16px;">
+                  <input type="checkbox" class="form-check-input" name="Action">
+               </div>
+               <div class="row g-0">
+                  <div class="col-md-2">
+                     <img class="img-fluid w-auto" src="/icons/image-fill.svg" alt="...">
+                  </div>
+                  <div class="col-md-10">
+                     <div class="card-body">
+                        <div class="row mb-2">
+                           <div class="col-md-9">
+                              <small class="text-muted">
+                                 <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">My Post</a> by <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">John Doe</a>
+                              </small>
+                           </div>
+                           <div class="col-md-3 text-end">
+                              <small class="text-dark">11 May 2021</small>
+                           </div>
+                        </div>
+                        <p class="card-text">
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae autem, temporibus veritatis porro eius dignissimos laudantium asperiores at fugit nisi cupiditate aliquam animi illum id vero mollitia quae minima?
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="card flex-row shadow-sm mb-3">
+               <div style="padding: 16px 10px 0 16px;">
+                  <input type="checkbox" class="form-check-input" name="Action2">
+               </div>
+               <div class="row g-0">
+                  <div class="col-md-2">
+                     <img class="img-fluid w-auto" src="/icons/image-fill.svg" alt="...">
+                  </div>
+                  <div class="col-md-10">
+                     <div class="card-body">
+                        <div class="row mb-2">
+                           <div class="col-md-9">
+                              <small class="text-muted">
+                                 <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">My Post</a> by <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">John Doe</a>
+                              </small>
+                           </div>
+                           <div class="col-md-3 text-end">
+                              <small class="text-dark">11 May 2021</small>
+                           </div>
+                        </div>
+                        <p class="card-text">
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae autem, temporibus veritatis porro eius dignissimos laudantium asperiores at fugit nisi cupiditate aliquam animi illum id vero mollitia quae minima?
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="card flex-row shadow-sm mb-3">
+               <div style="padding: 16px 10px 0 16px;">
+                  <input type="checkbox" class="form-check-input" name="Action3">
+               </div>
+               <div class="row g-0">
+                  <div class="col-md-2">
+                     <img class="img-fluid w-auto" src="/icons/image-fill.svg" alt="...">
+                  </div>
+                  <div class="col-md-10">
+                     <div class="card-body">
+                        <div class="row mb-2">
+                           <div class="col-md-9">
+                              <small class="text-muted">
+                                 <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">My Post</a> by <a class="text-decoration-none text-info" style="font-weight: 500;" href="#">John Doe</a>
+                              </small>
+                           </div>
+                           <div class="col-md-3 text-end">
+                              <small class="text-dark">11 May 2021</small>
+                           </div>
+                        </div>
+                        <p class="card-text">
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae autem, temporibus veritatis porro eius dignissimos laudantium asperiores at fugit nisi cupiditate aliquam animi illum id vero mollitia quae minima?
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </section>
+         <nav aria-label="Pagination">
+            <div class="text-center">
+               <a class="btn btn-outline-secondary shadow-sm" style="width: 100px" href="#"><i class="bi bi-chevron-double-left"></i> Last</a>
+               <a class="btn btn-outline-secondary shadow-sm" style="width: 100px" href="#"><i class="bi bi-chevron-left"></i> Newer</a>
+               <a class="btn btn-outline-secondary shadow-sm" style="width: 100px" href="#">Older <i class="bi bi-chevron-right"></i></a>
+               <a class="btn btn-outline-secondary shadow-sm" style="width: 100px" href="#">First <i class="bi bi-chevron-double-right"></i></a>
+            </div>
+         </nav>
+      </div>
+   </div>
+</div>
+
+<script>
+   var checker = document.getElementById("checker");
+
+   function checkAll() {
+      var content = document.getElementById('content');
+      for (var i = 0; i < content.children.length; i++) {
+         content.children[i].children[0].children[0].checked = checker.checked;
+      }
+   }
+   checker.onclick = checkAll;
+</script>
