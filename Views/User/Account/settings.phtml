@@ -1,0 +1,177 @@
+<?= $this->layout('Shared/layout') ?>
+
+<div class="container">
+   <div class="row">
+      <aside class="bg-white" style="width: 200px;">
+         <?= $this->renderPartial('Shared/userSidebar') ?>
+      </aside>
+      <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 500px; width: 400px">
+         <header class="px-1">
+            <div class="row">
+               <div class="col">
+                  <h3 class="mb-3" style="color: #555">Settings</h3>
+               </div>
+               <div class="col">
+                  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                     <ol class="breadcrumb justify-content-end mt-1">
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">Account</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
+         </header>
+         <section>
+            <div class="card shadow-sm mb-3">
+               <form method="post" action="">
+                  <div class="card-header bg-white">
+                     <h5 class="card-title m-2">Profile</h5>
+                  </div>
+                  <div class="card-body m-2">
+                     <div class="row">
+                        <div class="col-md-12 col-lg-4 text-center">
+                           <div class="mb-3">
+                              <img class="img-fluid m-auto" style="max-height: 200px;" src="/icons/user-icon.svg" alt="...">
+                           </div>
+                           <input type="text" class="form-control" id="photo" name="Photo" aria-label="Recipient's username" aria-describedby="button-addon" hidden>
+                           <button id="upload" class="btn btn-outline-secondary mb-3">Upload Photo</button>
+                        </div>
+                        <div class="col-md-12 col-lg-8">
+                           <div class="row mb-3">
+                              <label for="fullName" class="col-sm-3 col-form-label text-muted">Full Name</label>
+                              <div class="col-sm-9">
+                                 <input type="text" id="fullName" name="FullName" class="form-control border-0 border-bottom" value="John Doe">
+                              </div>
+                           </div>
+                           <div class="row mb-3">
+                              <label for="biography" class="col-sm-3 col-form-label text-muted">Biography</label>
+                              <div class="col-sm-9">
+                                 <textarea id="biography" name="Biography" class="form-control border-0 border-bottom auto-size" rows="3" spellcheck="false">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla exercitationem assumenda, at officia earum quo suscipit delectus.</textarea>
+                              </div>
+                           </div>
+                           <div class="row mb-3">
+                              <label for="email" class="col-sm-3 col-form-label text-muted">Email</label>
+                              <div class="col-sm-9">
+                                 <input type="email" id="email" name="Email" class="form-control border-0 border-bottom" value="john.doe@email.com">
+                              </div>
+                           </div>
+                           <div class="row mb-3">
+                              <label for="url" class="col-sm-3 col-form-label text-muted">URL</label>
+                              <div class="col-sm-9">
+                                 <input type="text" id="url" name="URL" class="form-control border-0 border-bottom" value="http://john.doe.me">
+                              </div>
+                           </div>
+                           <div class="row mb-3">
+                              <label for="location" class="col-sm-3 col-form-label text-muted">Location</label>
+                              <div class="col-sm-9">
+                                 <input type="text" id="location" name="Location" class="form-control border-0 border-bottom" value="Home">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card-footer text-muted text-end bg-white">
+                     <button type="submit" class="btn btn-primary">Update Profile</button>
+                  </div>
+               </form>
+            </div>
+            <div class="row row-cols-1 row-cols-lg-2 g-4">
+               <div class="col">
+                  <div class="card shadow-sm h-100">
+                     <div class="card-header bg-white">
+                        <h5 class="card-title m-2">Security</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="row mb-3">
+                           <label for="currentPassword" class="col-sm-5 col-form-label">Current Password</label>
+                           <div class="col-sm-7">
+                              <input type="text" id="currentPassword" name="CurrentPassword" class="form-control">
+                           </div>
+                        </div>
+                        <div class="row mb-3">
+                           <label for="newPassword" class="col-sm-5 col-form-label">New Password</label>
+                           <div class="col-sm-7">
+                              <input type="password" id="newPassword" name="NewPassword" class="form-control">
+                           </div>
+                        </div>
+                        <div class="row mb-3">
+                           <label for="newPassword" class="col-sm-5 col-form-label">Confirm password</label>
+                           <div class="col-sm-7">
+                              <input type="password" id="newPassword" name="NewPassword" class="form-control">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card-footer text-end bg-white">
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="card shadow-sm h-100">
+                     <div class="card-header bg-white">
+                        <h5 class="card-title m-2">Account</h5>
+                     </div>
+                     <div class="card-body">
+                        <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+                           <button class="nav-link text-dark active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Change Username</button>
+                           <button class="nav-link text-dark" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Delete Account</button>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                           <div class="tab-pane fade show active p-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                              <form method="post" action="">
+                                 <div class="row mb-3">
+                                    <label for="username" class="col-sm-4 col-form-label">Username</label>
+                                    <div class="col-sm-8">
+                                       <input type="text" id="username" name="Username" class="form-control" value="john.doe">
+                                    </div>
+                                 </div>
+                                 <p class="card-text">
+                                    Be careful! Changing username can cause unintended consequences.
+                                 </p>
+                                 <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Change Username</button>
+                                 </div>
+                              </form>
+                           </div>
+                           <div class="tab-pane fade p-3" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                              <form method="post" action="">
+                                 <h6 class="card-title">Warning!</h6>
+                                 <p class="card-text">
+                                    Once account is deleted, there is no going back. Please be certain.
+                                 </p>
+                                 <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                       Confirm account deletion
+                                    </label>
+                                 </div>
+                                 <div class="text-end">
+                                    <button type="submit" class="btn btn-danger">Detete Account</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.1/chart.min.js"></script>
+<script>
+   var upload = document.getElementById('upload');
+   upload.onclick = function() {
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = function() {
+         var files = Array.from(input.files);
+         var image = document.getElementById('photo');
+         image.value = files[0].name;
+      };
+      input.click();
+   }
+</script>

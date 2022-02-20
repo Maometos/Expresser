@@ -27,6 +27,7 @@ class AccountController extends Controller
     public function __construct()
     {
         $this->filter('index', AuthorizeFilter::class);
+        $this->filter('settings', AuthorizeFilter::class);
         $this->filter('login', AntiForgeryFilter::class);
         $this->filter('register', AntiForgeryFilter::class);
     }
@@ -37,6 +38,11 @@ class AccountController extends Controller
         $claim = $user->findClaim(fn ($claim) => $claim->Type == ClaimType::Name);
         $name = $claim ? $claim->Value : null;
         $this->ViewData['Name'] = $name;
+        return $this->view();
+    }
+
+    public function settings()
+    {
         return $this->view();
     }
 
