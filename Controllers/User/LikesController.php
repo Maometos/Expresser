@@ -2,11 +2,11 @@
 
 namespace Application\Controllers\User;
 
-use DevNet\Web\Mvc\Controller;
-use DevNet\Web\Mvc\IActionResult;
-use DevNet\Web\Mvc\Filters\AuthorizeFilter;
+use DevNet\Web\Controller\ActionController;
+use DevNet\Web\Controller\IActionResult;
+use DevNet\Web\Controller\Filters\AuthorizeFilter;
 
-class LikesController extends Controller
+class LikesController extends ActionController
 {
     public function __construct()
     {
