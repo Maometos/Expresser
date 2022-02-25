@@ -21,18 +21,18 @@
       <div class="card flex-grow-1 p-4 shadow" style="max-width: 400px">
          <div class="card-body">
             <form method="post" action="/user/account/register">
-               <h2 class="text-center text-info">Register</h2>
+               <h2 class="text-center text-info">User Registration</h2>
                <div class="mb-3">
-                  <label for="InputName" class="form-label">Full name</label>
-                  <input type="text" class="form-control" id="InputName" name="Name" required>
+                  <label for="Name" class="form-label">Full name</label>
+                  <input type="text" class="form-control" id="Name" name="Name" required>
                </div>
                <div class="mb-3">
-                  <label for="InputEmail" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="InputEmail" name="Email" required>
+                  <label for="Email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="Email" name="Email" required>
                </div>
                <div class="mb-3">
-                  <label for="InputPassword" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="InputPassword" name="Password" pattern="^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$" required>
+                  <label for="Password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="Password" name="Password" pattern="^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$" required>
                   <div class="text-center">
                      <small class="text-muted">At least 8 characters, 1 capital letter and 1 digit</small>
                   </div>
