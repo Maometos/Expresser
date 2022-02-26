@@ -1,2 +1,2 @@
 # Expresser
-Multi-user blog built with DevNet-Framework
+Blog with Multi-user role management, built with DevNet-Framework.
