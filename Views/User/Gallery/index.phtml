@@ -26,7 +26,7 @@
                <div class="col-lg-8 mt-0">
                   <div class="m-3">
                      <input type="checkbox" id="checker" class="form-check-input" style="margin: 10px 10px 0 0;">
-                     <a class="btn btn-primary" href="#"><i class="bi bi-plus-lg"></i> Add Media</a>
+                     <a id="upload" class="btn btn-primary" href="#"><i class="bi bi-plus-lg"></i> Add Media</a>
                      <a class="btn btn-outline-secondary border-0" href="#"><i class="bi bi-trash"> </i>Delete</a>
                   </div>
                </div>
@@ -47,15 +47,7 @@
                   <div style="padding: 0 10px 0 0;">
                      <input type="checkbox" id="checker" class="form-check-input">
                   </div>
-                  <div>
-                     <img class="img-thumbnail img-fluid w-auto h-100" width="500" height="500" src="/images/326-500x300.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal1">
-                  </div>
-               </div>
-               <div class="col d-flex flex-row">
-                  <div style="padding: 0 10px 0 0;">
-                     <input type="checkbox" id="checker" class="form-check-input">
-                  </div>
-                  <div>
+                  <div style="height: 120px;">
                      <img class="img-thumbnail img-fluid w-auto h-100" width="500" height="500" src="/images/365-300x200.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal2">
                   </div>
                </div>
@@ -63,7 +55,7 @@
                   <div style="padding: 0 10px 0 0;">
                      <input type="checkbox" id="checker" class="form-check-input">
                   </div>
-                  <div>
+                  <div style="height: 120px;">
                      <img class="img-thumbnail img-fluid w-auto h-100" width="500" height="500" src="/images/401-300x200.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal3">
                   </div>
                </div>
@@ -71,8 +63,16 @@
                   <div style="padding: 0 10px 0 0;">
                      <input type="checkbox" id="checker" class="form-check-input">
                   </div>
-                  <div>
+                  <div style="height: 120px;">
                      <img class="img-thumbnail img-fluid w-auto h-100" width="500" height="500" src="/images/425-300x200.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal4">
+                  </div>
+               </div>
+               <div class="col d-flex flex-row">
+                  <div style="padding: 0 10px 0 0;">
+                     <input type="checkbox" id="checker" class="form-check-input">
+                  </div>
+                  <div style="height: 120px;">
+                     <img class="img-thumbnail img-fluid w-auto h-100" width="500" height="500" src="/images/326-500x300.jpg" alt="..." data-bs-toggle="modal" data-bs-target="#imageModal1">
                   </div>
                </div>
             </div>
@@ -137,12 +137,23 @@
 
 <script>
    var checker = document.getElementById("checker");
-
-   function checkAll() {
+   checker.onclick = function() {
       var gallery = document.getElementById('gallery');
       for (var i = 0; i < gallery.children[0].children.length; i++) {
          gallery.children[0].children[i].children[0].children[0].checked = checker.checked;
       }
-   }
-   checker.onclick = checkAll;
+   };
+
+   var upload = document.getElementById('upload');
+   upload.onclick = function() {
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = function() {
+         var files = Array.from(input.files);
+         var image = document.getElementById('photo');
+         image.value = files[0].name;
+      };
+      input.click();
+   };
+
 </script>
