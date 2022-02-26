@@ -1,6 +1,6 @@
 {
     "name": "maometos/expresser",
-    "description": "Multi-user blog built with DevNet-Framework",
+    "description": "blog with Multi-user role management",
     "type": "devnet-template",
     "license": "MIT",
     "authors": [
@@ -13,6 +13,6 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.4.0",
-        "devnet/core": "1.0.*"
+        "devnet/web": "1.0.*"
     }
 }
