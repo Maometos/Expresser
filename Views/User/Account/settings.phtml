@@ -1,27 +1,29 @@
 <? $this->layout('Shared/layout') ?>
 
+<header class="d-flex flex-column justify-content-center border-bottom" style="height: 100px; background-color: #f8f9fa;">
+   <div class="container">
+      <div class="row">
+         <div class="col">
+            <h4 class="my-1" class="my-1" style="color: #555">Settings</h4>
+         </div>
+         <div class="col">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+               <ol class="breadcrumb justify-content-end my-1">
+                  <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
+                  <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">Account</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Settings</li>
+               </ol>
+            </nav>
+         </div>
+      </div>
+   </div>
+</header>
 <div class="container">
    <div class="row">
       <aside class="bg-white" style="width: 200px;">
          <? $this->renderPartial('Shared/userSidebar') ?>
       </aside>
       <div class="d-flex flex-grow-1 flex-column px-4 py-3" style="min-height: 500px; width: 400px">
-         <header class="px-1">
-            <div class="row">
-               <div class="col">
-                  <h3 class="mb-3" style="color: #555">Settings</h3>
-               </div>
-               <div class="col">
-                  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
-                     <ol class="breadcrumb justify-content-end mt-1">
-                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">User</a></li>
-                        <li class="breadcrumb-item"><a class="text-decoration-none" href="/user/account">Account</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Settings</li>
-                     </ol>
-                  </nav>
-               </div>
-            </div>
-         </header>
          <section>
             <div class="card shadow-sm mb-3">
                <form method="post" action="">
@@ -103,7 +105,7 @@
                         </div>
                      </div>
                      <div class="card-footer text-end bg-white">
-                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                        <button type="submit" class="btn btn-primary">Change Password</button>
                      </div>
                   </div>
                </div>
