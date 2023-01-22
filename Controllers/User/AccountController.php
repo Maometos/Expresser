@@ -3,35 +3,27 @@
 namespace Application\Controllers\User;
 
 use DevNet\System\Linq;
-use DevNet\System\Type;
 use DevNet\System\Collections\ArrayList;
-use DevNet\Web\Controller\ActionController;
+use DevNet\Web\Controller\AbstractController;
 use DevNet\Web\Controller\IActionResult;
-use DevNet\Web\Controller\Filters\AuthorizeFilter;
-use DevNet\Web\Controller\Filters\AntiForgeryFilter;
-use DevNet\Web\Security\ClaimsPrincipal;
-use DevNet\Web\Security\ClaimsIdentity;
-use DevNet\Web\Security\ClaimType;
-use DevNet\Web\Security\Claim;
+use DevNet\Web\Filters\AntiForgery;
+use DevNet\Web\Filters\Authorize;
+use DevNet\Web\Security\Claims\ClaimsPrincipal;
+use DevNet\Web\Security\Claims\ClaimsIdentity;
+use DevNet\Web\Security\Claims\ClaimType;
 use Application\Models\Login;
 use Application\Models\Registration;
 use Application\Models\User;
+use DevNet\Web\Security\Claims\Claim;
 
 /**
  * This is an example on how to create registration and login system using claims without SQL database.
  * This example dosen't encrypt your data, so it's not recommanded for production,
  * Use DevNet Identity Manager instead, or encrypt you own data.
  */
-class AccountController extends ActionController
+#[Authorize(roles: ['admin', 'member'])]
+class AccountController extends AbstractController
 {
-    public function __construct()
-    {
-        $this->filter('index', AuthorizeFilter::class);
-        $this->filter('settings', AuthorizeFilter::class);
-        $this->filter('login', AntiForgeryFilter::class);
-        $this->filter('register', AntiForgeryFilter::class);
-    }
-
     public function index(): IActionResult
     {
         $user = $this->HttpContext->User;
@@ -46,6 +38,8 @@ class AccountController extends ActionController
         return $this->view();
     }
 
+    #[Authorize]
+    #[AntiForgery]
     public function login(Login $form): IActionResult
     {
         $user = $this->HttpContext->User;
@@ -65,7 +59,7 @@ class AccountController extends ActionController
         $json = file_get_contents(__DIR__ . '/../../data.json');
         $data = json_decode($json);
 
-        $users = new ArrayList(Type::Object);
+        $users = new ArrayList('object');
         $users->addrange($data);
 
         $user = $users->where(fn ($user) => $user->Username == $form->Username)->first();
@@ -81,7 +75,7 @@ class AccountController extends ActionController
         $identity = new ClaimsIdentity('AuthenticationUser');
         $identity->addClaim(new Claim(ClaimType::Name, $user->Name));
         $identity->addClaim(new Claim(ClaimType::Email, $user->Username));
-        $identity->addClaim(new Claim(ClaimType::Role, 'Memeber'));
+        $identity->addClaim(new Claim(ClaimType::Role, 'member'));
         $userPrincipal  = new ClaimsPrincipal($identity);
         $authentication = $this->HttpContext->Authentication;
         $authentication->SignIn($userPrincipal, $form->Remember);
@@ -89,6 +83,8 @@ class AccountController extends ActionController
         return $this->redirect('/user/account/index');
     }
 
+    #[Authorize]
+    #[AntiForgery]
     public function register(Registration $form): IActionResult
     {
         $this->ViewData['success'] = false;
