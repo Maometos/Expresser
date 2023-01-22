@@ -16,10 +16,13 @@ class Program
         $builder->configureServices(function ($services) {
             $services->addMvc();
             $services->addAntiforgery();
-            $services->addAuthentication(function ($options) {
-                $options->LoginPath = '/user/account/login';
+            $services->addAuthentication(function ($builder) {
+                $builder->addCookie();
             });
-            $services->addAuthorisation();
+
+            $services->addAuthorisation(function ($builder) {
+                $builder->addPolicy("management", fn ($policy) => $policy->requireRole(['admin']));
+            });
         });
 
         $host = $builder->build();
@@ -33,11 +36,10 @@ class Program
 
             $app->useRouter();
             $app->useAuthentication();
-            $app->useAuthorization();
 
             $app->useEndpoint(function ($routes) {
-                $routes->mapRoute("user", "/user/{controller=Account}/{action=Index}/{id?}");
-                $routes->mapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                $routes->mapRoute("/user/{controller=Account}/{action=Index}/{id?}");
+                $routes->mapRoute("{controller=Home}/{action=Index}/{id?}");
             });
         });
     }
