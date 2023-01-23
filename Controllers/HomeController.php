@@ -2,10 +2,10 @@
 
 namespace Application\Controllers;
 
-use DevNet\Web\Controller\ActionController;
+use DevNet\Web\Controller\AbstractController;
 use DevNet\Web\Controller\IActionResult;
 
-class HomeController extends ActionController
+class HomeController extends AbstractController
 {
     public function index(): IActionResult
     {
@@ -27,11 +27,14 @@ class HomeController extends ActionController
         $code = $this->HttpContext->Error ? $this->HttpContext->Error->getCode() : 404;
         
         switch ($code) {
-            case 404:
-                $error = new \Exception("Sorry! Looks like this page doesn't exist.", 404);
+            case 401:
+                return $this->redirect('/user/account/login');
                 break;
             case 403:
                 $error = new \Exception("Sorry! Your request is not allowed.", 403);
+                break;
+            case 404:
+                $error = new \Exception("Sorry! Looks like this page doesn't exist.", 404);
                 break;
             default:
                 $error = new \Exception("Woops! Looks like something went wrong.", 500);
