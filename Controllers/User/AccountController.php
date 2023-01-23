@@ -8,17 +8,17 @@ use DevNet\Web\Controller\AbstractController;
 use DevNet\Web\Controller\IActionResult;
 use DevNet\Web\Filters\AntiForgery;
 use DevNet\Web\Filters\Authorize;
-use DevNet\Web\Security\Claims\ClaimsPrincipal;
+use DevNet\Web\Security\Claims\Claim;
 use DevNet\Web\Security\Claims\ClaimsIdentity;
+use DevNet\Web\Security\Claims\ClaimsPrincipal;
 use DevNet\Web\Security\Claims\ClaimType;
 use Application\Models\Login;
 use Application\Models\Registration;
 use Application\Models\User;
-use DevNet\Web\Security\Claims\Claim;
 
 /**
  * This is an example on how to create registration and login system using claims without SQL database.
- * This example dosen't encrypt your data, so it's not recommanded for production,
+ * This example dosen't encrypt the user password or data, so it's not recommanded for production,
  * Use DevNet Identity Manager instead, or encrypt you own data.
  */
 #[Authorize(roles: ['admin', 'member'])]
