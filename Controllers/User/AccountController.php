@@ -76,9 +76,8 @@ class AccountController extends AbstractController
         $identity->addClaim(new Claim(ClaimType::Name, $user->Name));
         $identity->addClaim(new Claim(ClaimType::Email, $user->Username));
         $identity->addClaim(new Claim(ClaimType::Role, 'member'));
-        $userPrincipal  = new ClaimsPrincipal($identity);
         $authentication = $this->HttpContext->Authentication;
-        $authentication->SignIn($userPrincipal, $form->Remember);
+        $authentication->signIn($identity, $form->Remember);
 
         return $this->redirect('/user/account/index');
     }
