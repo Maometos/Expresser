@@ -20,9 +20,7 @@ class Program
                 $builder->addCookie();
             });
 
-            $services->addAuthorisation(function ($builder) {
-                $builder->addPolicy("management", fn ($policy) => $policy->requireRole(['admin']));
-            });
+            $services->addAuthorization();
         });
 
         $host = $builder->build();
