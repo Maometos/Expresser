@@ -4,13 +4,12 @@ namespace Application\Controllers\User;
 
 use DevNet\System\Linq;
 use DevNet\System\Collections\ArrayList;
+use DevNet\Web\Action\Filters\AntiForgery;
+use DevNet\Web\Action\Filters\Authorize;
+use DevNet\Web\Action\IActionResult;
 use DevNet\Web\Controller\AbstractController;
-use DevNet\Web\Controller\IActionResult;
-use DevNet\Web\Filters\AntiForgery;
-use DevNet\Web\Filters\Authorize;
 use DevNet\Web\Security\Claims\Claim;
 use DevNet\Web\Security\Claims\ClaimsIdentity;
-use DevNet\Web\Security\Claims\ClaimsPrincipal;
 use DevNet\Web\Security\Claims\ClaimType;
 use Application\Models\Login;
 use Application\Models\Registration;

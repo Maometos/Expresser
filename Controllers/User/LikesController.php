@@ -2,9 +2,9 @@
 
 namespace Application\Controllers\User;
 
+use DevNet\Web\Action\Filters\Authorize;
+use DevNet\Web\Action\IActionResult;
 use DevNet\Web\Controller\AbstractController;
-use DevNet\Web\Controller\IActionResult;
-use DevNet\Web\Filters\Authorize;
 
 #[Authorize(roles: ['admin', 'member'])]
 class LikesController extends AbstractController
