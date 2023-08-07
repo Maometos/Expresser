@@ -3,9 +3,9 @@
 namespace Application\Controllers;
 
 use DevNet\Web\Action\IActionResult;
-use DevNet\Web\Controller\AbstractController;
+use DevNet\Web\Action\ActionController;
 
-class BlogController extends AbstractController
+class BlogController extends ActionController
 {
     public function index(): IActionResult
     {

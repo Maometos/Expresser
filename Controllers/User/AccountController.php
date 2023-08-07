@@ -7,7 +7,7 @@ use DevNet\System\Collections\ArrayList;
 use DevNet\Web\Action\Filters\AntiForgery;
 use DevNet\Web\Action\Filters\Authorize;
 use DevNet\Web\Action\IActionResult;
-use DevNet\Web\Controller\AbstractController;
+use DevNet\Web\Action\ActionController;
 use DevNet\Web\Security\Claims\Claim;
 use DevNet\Web\Security\Claims\ClaimsIdentity;
 use DevNet\Web\Security\Claims\ClaimType;
@@ -21,7 +21,7 @@ use Application\Models\User;
  * Use DevNet Identity Manager instead, or encrypt you own data.
  */
 #[Authorize(roles: ['admin', 'member'])]
-class AccountController extends AbstractController
+class AccountController extends ActionController
 {
     public function index(): IActionResult
     {

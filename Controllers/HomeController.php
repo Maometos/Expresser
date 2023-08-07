@@ -3,9 +3,9 @@
 namespace Application\Controllers;
 
 use DevNet\Web\Action\IActionResult;
-use DevNet\Web\Controller\AbstractController;
+use DevNet\Web\Action\ActionController;
 
-class HomeController extends AbstractController
+class HomeController extends ActionController
 {
     public function index(): IActionResult
     {

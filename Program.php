@@ -11,9 +11,9 @@ class Program
     public static function main(array $args = [])
     {
         $builder = WebHost::createDefaultBuilder($args);
-        $configuration = $builder->ConfigBuilder->build();
+        $configuration = $builder->configuration;
 
-        $builder->configureServices(function ($services) {
+        $builder->register(function ($services) {
             $services->addMvc();
             $services->addAntiforgery();
             $services->addAuthentication(function ($builder) {
@@ -26,7 +26,7 @@ class Program
         $host = $builder->build();
 
         $host->start(function ($app) use ($configuration) {
-            if ($configuration->getValue('environment') == 'development') {
+            if ($configuration->getValue('environment') != 'development') {
                 $app->UseExceptionHandler();
             } else {
                 $app->UseExceptionHandler("/home/error");
@@ -36,8 +36,8 @@ class Program
             $app->useAuthentication();
 
             $app->useEndpoint(function ($routes) {
-                $routes->mapRoute("/user/{controller=Account}/{action=Index}/{id?}");
-                $routes->mapRoute("{controller=Home}/{action=Index}/{id?}");
+                $routes->map("/user/{controller=Account}/{action=Index}/{id?}");
+                $routes->map("{controller=Home}/{action=Index}/{id?}");
             });
         });
     }
